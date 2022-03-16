@@ -5,7 +5,19 @@
     <title>Electron Stream to File</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="container">
+      <div class="content">
+        <p id="value-label">0</p>
+        <p>
+          <button class="button" id="start-button">Start Stream</button>
+          <button class="button" id="stop-button" disabled>Stop Stream</button>
+        </p>
+        <p>
+          <input id="label-input" disabled />
+          <button class="button" id="label-button" disabled>Label Event</button>
+        </p>
+      </div>
+    </div>
     <script src="renderer.js"></script>
   </body>
 </html>

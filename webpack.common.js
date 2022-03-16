@@ -7,7 +7,7 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -31,7 +31,7 @@ const baseConfig = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.scss'],
+    extensions: ['.js', '.css', '.scss'],
   },
 }
 

@@ -6,7 +6,7 @@
     "dev:renderer": "webpack serve --live-reload --config webpack.renderer.js --mode development",
     "dev:electron": "webpack --config webpack.electron.js --mode development && electron .",
     "build": "webpack --config webpack.renderer.js && webpack --config webpack.electron.js && electron-builder",
-    "fmt": "prettier --write 'src/**/*.{js,jsx}' 'style/**/*.{css,scss}' webpack.*.js"
+    "fmt": "prettier --write 'src/**/*.js' 'style/**/*.{css,scss}' webpack.*.js"
   },
   "build": {
     "productName": "Electron Stream to File",
@@ -21,14 +21,9 @@
       "target": "nsis"
     }
   },
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
   "devDependencies": {
     "@babel/core": "^7.17.7",
     "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
