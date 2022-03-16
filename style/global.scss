@@ -11,3 +11,18 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.container {
+  position: fixed;
+  bottom: 50%;
+  width: 100%;
+  max-height: calc(100%);
+  transform: translateY(50%);
+  overflow-y: auto;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
