@@ -1,0 +1,49 @@
+{
+  "name": "electron-stream-to-file",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "run-p dev:renderer dev:electron",
+    "dev:renderer": "webpack serve --live-reload --config webpack.renderer.js --mode development",
+    "dev:electron": "webpack --config webpack.electron.js --mode development && electron .",
+    "build": "webpack --config webpack.renderer.js && webpack --config webpack.electron.js && electron-builder",
+    "fmt": "prettier --write 'src/**/*.{js,jsx}' 'style/**/*.{css,scss}' webpack.*.js"
+  },
+  "build": {
+    "productName": "Electron Stream to File",
+    "appId": "io.shoya.electron-stream-to-file",
+    "files": [
+      "build/**/*"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.7.1",
+    "electron": "^17.1.2",
+    "electron-builder": "^23.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.6.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "main": "build/main.js",
+  "author": "Shoya Ishimaru",
+  "license": "MIT"
+}
