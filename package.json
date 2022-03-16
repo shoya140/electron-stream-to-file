@@ -6,7 +6,7 @@
     "dev:renderer": "webpack serve --live-reload --config webpack.renderer.js --mode development",
     "dev:electron": "webpack --config webpack.electron.js --mode development && electron .",
     "build": "webpack --config webpack.renderer.js && webpack --config webpack.electron.js && electron-builder",
-    "fmt": "prettier --write 'src/**/*.{js,jsx}' 'style/**/*.{css,scss}' webpack.*.js"
+    "fmt": "prettier --write 'src/**/*.{ts,tsx}' 'style/**/*.{css,scss}' webpack.*.js"
   },
   "build": {
     "productName": "Electron Stream to File",
@@ -26,10 +26,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.7",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "babel-loader": "^8.2.3",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "electron": "^17.1.2",
@@ -39,6 +38,8 @@
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.2",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"

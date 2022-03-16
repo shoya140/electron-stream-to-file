@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const { ipcRenderer } = window
 
-var timer
+var timer: ReturnType<typeof setInterval>
 
 export const App = () => {
   const [label, setLabel] = useState('')
@@ -36,7 +36,7 @@ export const App = () => {
     setLabel('')
   }
 
-  const handleLabelChange = (event) => {
+  const handleLabelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLabel(event.target.value)
   }
 

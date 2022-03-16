@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, IpcMainEvent } from 'electron'
 import * as path from 'path'
 import * as fs from 'fs'
 
@@ -6,8 +6,8 @@ const LOG_DIRECTORY_NAME = 'electron-stream-to-file'
 const STREAM_FILE_NAME = 'sensor.csv'
 const LABEL_FILE_NAME = 'label.csv'
 
-let mainWindow
-let logDirectory
+let mainWindow: Electron.BrowserWindow
+let logDirectory: string
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
@@ -41,7 +41,7 @@ app.on('window-all-closed', () => {
   }
 })
 
-ipcMain.on('start-streaming', (event, timeString) => {
+ipcMain.on('start-streaming', (event: IpcMainEvent, timeString: string) => {
   logDirectory = path.join(app.getPath('home'), LOG_DIRECTORY_NAME, timeString)
   fs.mkdirSync(logDirectory, { recursive: true })
   fs.writeFileSync(
@@ -54,16 +54,22 @@ ipcMain.on('start-streaming', (event, timeString) => {
   )
 })
 
-ipcMain.on('write-stream', (event, timestamp, data) => {
-  fs.appendFileSync(
-    path.join(logDirectory, STREAM_FILE_NAME),
-    `${timestamp},${data}\n`
-  )
-})
+ipcMain.on(
+  'write-stream',
+  (event: IpcMainEvent, timestamp: string, data: string) => {
+    fs.appendFileSync(
+      path.join(logDirectory, STREAM_FILE_NAME),
+      `${timestamp},${data}\n`
+    )
+  }
+)
 
-ipcMain.on('write-label', (event, timestamp, label) => {
-  fs.appendFileSync(
-    path.join(logDirectory, LABEL_FILE_NAME),
-    `${timestamp},${label}\n`
-  )
-})
+ipcMain.on(
+  'write-label',
+  (event: IpcMainEvent, timestamp: string, label: string) => {
+    fs.appendFileSync(
+      path.join(logDirectory, LABEL_FILE_NAME),
+      `${timestamp},${label}\n`
+    )
+  }
+)
